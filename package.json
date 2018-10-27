@@ -1,0 +1,28 @@
+{
+  "name": "rsschool-codejam",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "make.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tatsianacs/rsschool-codejam.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "TatsianaCS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tatsianacs/rsschool-codejam/issues"
+  },
+  "homepage": "https://github.com/Tatsianacs/rsschool-codejam#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0"
+  }
+}
