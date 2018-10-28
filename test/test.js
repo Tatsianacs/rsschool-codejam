@@ -2,6 +2,7 @@ var assert = require('assert');
 Object.freeze(assert);
 const makeModuleForMakeFunction = require('../src/make.js');
 const makeModuleForSumFunction = require('../src/someOfOther.js');
+const makeModuleForRecursion = require('../src/recursion.js');
 
 
 describe('Sum of values until sum as function is passed', function () {
@@ -40,7 +41,57 @@ describe('Sum of other elements of array', function () {
   });
   it('throws error if array is not valid', function () {
     assert.throws(() => {
-      smakeModuleForSumFunction.someOfOther();  // usage of wanted function with test parameters
+      smakeModuleForSumFunction.someOfOther();
+    }, Error)
+  });
+});
+
+describe('Convert tree into array', function () {
+  it('happy path: tree with left and right nodes', function () {
+    let tree = {
+      "value": 100,
+      "left": {
+        "value": 90,
+        "left": {
+          "value": 70
+        },
+        "right": {
+          "value": 99
+        }
+      },
+      "right": {
+        "value": 120,
+        "left": {
+          "value": 110
+        },
+        "right": {
+          "value": 130
+        }
+      }
+    };
+    assert.deepEqual(makeModuleForRecursion.recursion(tree), [[100], [90, 120], [70, 99, 110, 130]]);
+  });
+  it('alternative path: tree with mainly left nodes', function () {
+    let tree = {
+      "value": 1,
+      "left": {
+        "value": 90,
+        "left": {
+          "value": 70,
+          "left": {
+            "value": 70,
+          }
+        },
+        "right": {
+          "value": 99
+        }
+      }
+    };
+    assert.deepEqual(makeModuleForRecursion.recursion(tree), [[1], [90], [70, 99], [70]]);
+  });
+  it('throws error if node is not valid', function () {
+    assert.throws(() => {
+      makeModuleForRecursion.recursion();  //
     }, Error)
   });
 });

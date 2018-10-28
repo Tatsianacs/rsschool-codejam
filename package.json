@@ -4,7 +4,8 @@
   "description": "description",
   "main": "make.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "eslint":"eslint src/*.js"
   },
   "repository": {
     "type": "git",
